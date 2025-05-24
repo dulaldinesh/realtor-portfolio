@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinesh Dulal | Premier Harrisburg Realtor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        
+         :root {
+            --gold: #d4af37;
+            --dark-bg: #000;
+            --card-bg: #111;
+            --text-light: #fff;
+            --text-gray: #ccc;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        section {
+            padding: 80px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--gold);
+            margin: 15px auto 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--gold);
+            color: #000;
+            padding: 12px 30px;
+            border: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 4px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+        /* Animations */
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideInFromLeft {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideInFromRight {
+            from {
+                transform: translateX(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideInFromBottom {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes popIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        /* Header & Navigation */
+        
+        header {
+            position: fixed;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+        
+        header.scrolled {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+            animation: fadeIn 1s;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        /* Hero Section */
+        
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            animation: fadeIn 2s;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            animation: slideInFromLeft 1s;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: slideInFromRight 1s;
+        }
+        
+        .hero .btn {
+            animation: slideInFromBottom 1s;
+        }
+        /* About Section */
+        
+        .about {
+            background-color: var(--dark-bg);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-top: 50px;
+        }
+        
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            animation: slideInFromLeft 1s;
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text {
+            flex: 1;
+            animation: slideInFromRight 1s;
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: var(--text-gray);
+        }
+        
+        .contact-info {
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-item i {
+            margin-right: 15px;
+            color: var(--gold);
+            font-size: 1.2rem;
+            width: 20px;
+        }
+        /* Services Section */
+        
+        .services {
+            background-color: #0a0a0a;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+            opacity: 0;
+            animation: popIn 0.5s forwards;
+            animation-delay: calc(var(--order) * 0.1s);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .service-card p {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+        /* Listings Section */
+        
+        .listings {
+            background-color: var(--dark-bg);
+        }
+        
+        .listings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .listing-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s;
+            opacity: 0;
+            animation: popIn 0.5s forwards;
+            animation-delay: calc(var(--order) * 0.1s);
+        }
+        
+        .listing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.1);
+        }
+        
+        .listing-image {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .listing-details {
+            padding: 20px;
+        }
+        
+        .price {
+            color: var(--gold);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .address {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+        
+        .features {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        
+        .feature i {
+            margin-right: 5px;
+            color: var(--gold);
+        }
+        
+        .listing-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .listing-actions .btn {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+        /* Testimonials Section */
+        
+        .testimonials {
+            background-color: #0a0a0a;
+        }
+        
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 50px auto 0;
+            position: relative;
+        }
+        
+        .testimonial {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            opacity: 0;
+            transition: all 0.5s;
+            position: absolute;
+            width: 100%;
+        }
+        
+        .testimonial.active {
+            opacity: 1;
+            position: relative;
+            animation: fadeIn 1s;
+        }
+        
+        .client-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--gold);
+            margin: 0 auto 20px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .client-name {
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 5px;
+        }
+        
+        .client-role {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            background: #333;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .testimonial-dot.active {
+            background: var(--gold);
+        }
+        /* Contact Section */
+        
+        .contact {
+            background-color: var(--dark-bg);
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 50px;
+            margin-top: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            animation: slideInFromLeft 1s;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+        
+        .contact-info p {
+            margin-bottom: 30px;
+            line-height: 1.6;
+            color: var(--text-gray);
+        }
+        
+        .contact-details .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .contact-details i {
+            margin-right: 15px;
+            color: var(--gold);
+            font-size: 1.2rem;
+            width: 20px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            background: var(--card-bg);
+            padding: 140px;
+            border-radius: 10px;
+            animation: slideInFromRight 1s;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            background: #222;
+            border: 1px solid #333;
+            border-radius: 4px;
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--gold);
+            color: #000;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: #e6c34d;
+        }
+        /* Footer */
+        
+        footer {
+            background: #0a0a0a;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+        }
+        
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col h3 {
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-col p,
+        .footer-col a {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-col a:hover {
+            color: var(--gold);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #222;
+            border-radius: 50%;
+            color: var(--text-light);
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--gold);
+            color: #000;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        /* Back to Top Button */
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        /* Responsive Styles */
+        
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container {
+                flex-direction: column;
+            }
+            .about-img,
+            .about-text,
+            .contact-info,
+            .contact-form {
+                width: 100%;
+            }
+            .about-img {
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: #111;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s;
+                z-index: 999;
+            }
+            .nav-links.active {
+                right: 0;
+            }
+            .nav-links li {
+                margin: 20px 0;
+            }
+            .hamburger {
+                display: block;
+                z-index: 1000;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 15px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .listings-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        h5 {
+            margin-left: 60px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="#" class="logo">DINESH DULAL  <h5>Realtor</h5></a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#listings">Listings</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Your Trusted Harrisburg Realtor</h1>
+            <p>Specializing in luxury properties and first-time home buyers throughout the Harrisburg area</p>
+            <a href="#listings" class="btn">View Listings</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="/dd2.JPG" alt="Dinesh Dulal">
+                </div>
+                <div class="about-text">
+                    <h3>Dinesh Dulal</h3>
+                    <p>With over a years of experience in the Harrisburg real estate market, I bring unparalleled expertise and dedication to every transaction. My approach combines market knowledge, negotiation skills, and personalized service to help clients
+                        achieve their real estate goals.</p>
+                    <p>Whether you're buying your first home, selling an investment property, or looking for your dream estate, I'll guide you through every step of the process with professionalism and care.</p>
+
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>EMAIL: dulaldinesh116@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>MOBILE: (616) 840-2571</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>
+                            <a href="https://www.google.com/maps/place/2011+Linglestown+Rd,+Harrisburg,+PA+17111" target="_blank" style="color: inherit; text-decoration: none;">
+                                2011 Linglestown Rd, Harrisburg, PA 17111
+                            </a>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>My Services</h2>
+            <div class="services-grid">
+                <div class="service-card" style="--order: 1;">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Home Buying</h3>
+                    <p>Expert guidance through the entire home buying process, from search to closing. I'll help you find the perfect property that fits your needs and budget.</p>
+                </div>
+
+                <div class="service-card" style="--order: 2;">
+                    <div class="service-icon">
+                        <i class="fas fa-sign"></i>
+                    </div>
+                    <h3>Home Selling</h3>
+                    <p>Maximize your property's value with professional staging, marketing, and negotiation strategies tailored to the Harrisburg market.</p>
+                </div>
+
+                <div class="service-card" style="--order: 3;">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Market Analysis</h3>
+                    <p>Comprehensive property evaluations and market trend reports to help you make informed real estate decisions.</p>
+                </div>
+
+                <div class="service-card" style="--order: 4;">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Relocation Services</h3>
+                    <p>Smooth transition assistance for clients moving to or from the Harrisburg area, including neighborhood tours and school district information.</p>
+                </div>
+
+                <div class="service-card" style="--order: 5;">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Investment Properties</h3>
+                    <p>Strategic advice for real estate investors looking to build or optimize their property portfolios in Central Pennsylvania.</p>
+                </div>
+
+                <div class="service-card" style="--order: 6;">
+                    <div class="service-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Property Management</h3>
+                    <p>Full-service management solutions for rental properties, including tenant screening and maintenance coordination.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Listings Section -->
+    <section class="listings" id="listings">
+        <div class="container">
+            <h2>Featured Listings</h2>
+            <div class="listings-grid">
+                <!-- Listing 1 -->
+                <div class="listing-card" style="--order: 1;">
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6" alt="Luxury Home" class="listing-image">
+                    <div class="listing-details">
+                        <div class="price">$575,000</div>
+                        <div class="address">1245 Elm Street, Harrisburg, PA</div>
+                        <div class="features">
+                            <div class="feature"><i class="fas fa-bed"></i> 4 Beds</div>
+                            <div class="feature"><i class="fas fa-bath"></i> 3.5 Baths</div>
+                            <div class="feature"><i class="fas fa-ruler-combined"></i> 3,200 sqft</div>
+                        </div>
+                        <div class="listing-actions">
+                            <a href="#contact" class="btn">Schedule Tour</a>
+                            <a href="#" class="btn">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Listing 2 -->
+                <div class="listing-card" style="--order: 2;">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Modern Home" class="listing-image">
+                    <div class="listing-details">
+                        <div class="price">$425,000</div>
+                        <div class="address">87 Pine Road, Harrisburg, PA</div>
+                        <div class="features">
+                            <div class="feature"><i class="fas fa-bed"></i> 3 Beds</div>
+                            <div class="feature"><i class="fas fa-bath"></i> 2 Baths</div>
+                            <div class="feature"><i class="fas fa-ruler-combined"></i> 2,100 sqft</div>
+                        </div>
+                        <div class="listing-actions">
+                            <a href="#contact" class="btn">Schedule Tour</a>
+                            <a href="#" class="btn">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Listing 3 -->
+                <div class="listing-card" style="--order: 3;">
+                    <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6" alt="Townhouse" class="listing-image">
+                    <div class="listing-details">
+                        <div class="price">$325,000</div>
+                        <div class="address">22 Maple Avenue, Harrisburg, PA</div>
+                        <div class="features">
+                            <div class="feature"><i class="fas fa-bed"></i> 2 Beds</div>
+                            <div class="feature"><i class="fas fa-bath"></i> 2.5 Baths</div>
+                            <div class="feature"><i class="fas fa-ruler-combined"></i> 1,800 sqft</div>
+                        </div>
+                        <div class="listing-actions">
+                            <a href="#contact" class="btn">Schedule Tour</a>
+                            <a href="#" class="btn">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Listing 4 -->
+                <div class="listing-card" style="--order: 4;">
+                    <img src="https://images.unsplash.com/photo-1605146769289-440113cc3d00" alt="Luxury Condo" class="listing-image">
+                    <div class="listing-details">
+                        <div class="price">$475,000</div>
+                        <div class="address">500 Riverfront Drive, Harrisburg, PA</div>
+                        <div class="features">
+                            <div class="feature"><i class="fas fa-bed"></i> 3 Beds</div>
+                            <div class="feature"><i class="fas fa-bath"></i> 2 Baths</div>
+                            <div class="feature"><i class="fas fa-ruler-combined"></i> 2,400 sqft</div>
+                        </div>
+                        <div class="listing-actions">
+                            <a href="#contact" class="btn">Schedule Tour</a>
+                            <a href="#" class="btn">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Listing 5 -->
+                <div class="listing-card" style="--order: 5;">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d" alt="Suburban Home" class="listing-image">
+                    <div class="listing-details">
+                        <div class="price">$389,000</div>
+                        <div class="address">315 Oak Lane, Harrisburg, PA</div>
+                        <div class="features">
+                            <div class="feature"><i class="fas fa-bed"></i> 4 Beds</div>
+                            <div class="feature"><i class="fas fa-bath"></i> 2.5 Baths</div>
+                            <div class="feature"><i class="fas fa-ruler-combined"></i> 2,700 sqft</div>
+                        </div>
+                        <div class="listing-actions">
+                            <a href="#contact" class="btn">Schedule Tour</a>
+                            <a href="#" class="btn">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Listing 6 -->
+                <div class="listing-card" style="--order: 6;">
+                    <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154" alt="Country Estate" class="listing-image">
+                    <div class="listing-details">
+                        <div class="price">$1,250,000</div>
+                        <div class="address">1000 Hillside Drive, Harrisburg, PA</div>
+                        <div class="features">
+                            <div class="feature"><i class="fas fa-bed"></i> 5 Beds</div>
+                            <div class="feature"><i class="fas fa-bath"></i> 4.5 Baths</div>
+                            <div class="feature"><i class="fas fa-ruler-combined"></i> 6,500 sqft</div>
+                        </div>
+                        <div class="listing-actions">
+                            <a href="#contact" class="btn">Schedule Tour</a>
+                            <a href="#" class="btn">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2>Client Testimonials</h2>
+            <div class="testimonials-slider">
+                <!-- Testimonial 1 -->
+                <div class="testimonial active">
+                    <img src="/indu bastola.jpg" alt="Sarah Johnson" class="client-img">
+                    <p class="testimonial-text">"Dinesh made our first home buying experience seamless. His knowledge of the Harrisburg market helped us find the perfect neighborhood and negotiate a great price. We couldn't be happier with our new home!"</p>
+                    <h4 class="client-name">Indu Bastola</h4>
+                    <p class="client-role">First-Time Home Buyer</p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" class="client-img">
+                    <p class="testimonial-text">"As an investor, I've worked with many realtors, but Dinesh stands out. His attention to detail and understanding of investment properties helped me build a profitable portfolio in Harrisburg."</p>
+                    <h4 class="client-name">Michael Chen</h4>
+                    <p class="client-role">Real Estate Investor</p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily Rodriguez" class="client-img">
+                    <p class="testimonial-text">"Selling our family home was emotional, but Dinesh handled everything with care and professionalism. He got us 15% over asking price and made the whole process stress-free."</p>
+                    <h4 class="client-name">Emily Rodriguez</h4>
+                    <p class="client-role">Home Seller</p>
+                </div>
+            </div>
+
+            <div class="testimonial-nav">
+                <div class="testimonial-dot active" data-slide="0"></div>
+                <div class="testimonial-dot" data-slide="1"></div>
+                <div class="testimonial-dot" data-slide="2"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Ready to start your real estate journey? Contact me today to schedule a consultation or property tour. I'm here to answer all your questions and help you achieve your real estate goals.</p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>
+                            <a href="https://www.google.com/maps/place/2011+Linglestown+Rd,+Harrisburg,+PA+17111" target="_blank" style="color: inherit; text-decoration: none;">
+                                2011 Linglestown Rd, Harrisburg, PA 17111
+                            </a>
+                        </span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(616) 840-2571</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>relator.dinesh@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Monday - Friday: 9am - 6pm</span>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        </div>
+    </section>
+    </div>
+    </div>
+    </div>
+
+    <!-- Update the form section in the Contact section -->
+    <div class="contact-form">
+        <form id="contactForm" action="https://formsubmit.co/dulaldinesh116@gmail.com" method="POST">
+            <!-- FormSubmit Configuration -->
+            <input type="hidden" name="_subject" value="New Contact From Portfolio Website">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="_honey" style="display:none">
+            <!-- Honeypot for spam -->
+
+            <!-- Form Fields -->
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required minlength="3">
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}">
+            </div>
+            <div class="form-group">
+                <label for="subject">How Can I Help You?</label>
+                <select id="subject" name="subject" required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="Home Buying">I'm interested in buying</option>
+                <option value="Home Selling">I'm interested in selling</option>
+                <option value="Property Valuation">I need a property valuation</option>
+                <option value="General Question">I have a general question</option>
+            </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" required minlength="10"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">
+            <span class="btn-text">Send Message</span>
+            <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+        </button>
+        </form>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Dinesh Dulal</h3>
+                <p>Ghimire Homes estate services in Harrisburg and surrounding areas. Committed to excellence and client satisfaction.</p>
+                <div class="social-links">
